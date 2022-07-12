@@ -28,6 +28,11 @@ class UserResponse(BaseModel):
     email: EmailStr
     created_at: datetime
     id: int
-
+    password: str
     class Config:
         orm_mode = True
+
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
