@@ -12,9 +12,19 @@ class PostCreate(PostBase):
     pass
 
 
+class UserResponse(BaseModel):
+    email: EmailStr
+    created_at: datetime
+    id: int
+    class Config:
+        orm_mode = True
+
+
 class PostResponse(PostBase):
     id: int
     created_at: datetime
+    owner: UserResponse
+    owner_id: int
 
     class Config:  # to dodajemy aby pydantic wiedział co zrobić z sqlachemy model
         orm_mode = True
@@ -23,14 +33,6 @@ class PostResponse(PostBase):
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
-
-class UserResponse(BaseModel):
-    email: EmailStr
-    created_at: datetime
-    id: int
-    password: str
-    class Config:
-        orm_mode = True
 
 
 class UserLogin(BaseModel):
@@ -41,6 +43,7 @@ class UserLogin(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
+
 
 class TokenData(BaseModel):
     id: Optional[str] = None
