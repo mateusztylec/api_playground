@@ -23,7 +23,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "how it's going"}
+    return {"message": "Hello world!!!"}
 
 
 app.include_router(post.router)
