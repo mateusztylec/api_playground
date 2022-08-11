@@ -146,7 +146,7 @@ app/__pycache__/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-docker-compose.yml
+docker-compose-prod.yml
 # Pyre type checker
 .pyre/
 
@@ -163,4 +163,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
-/docker-compose.yml
+/docker-compose-prod.yml
