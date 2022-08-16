@@ -78,10 +78,12 @@ jobs:
     environment:
       name: production
     steps:
-      - name: deploying to Heroku
+      - name: pulling git repo
+        uses: actions/checkout@v2
 #      uses: actions/checkout@v2
-      uses: CDNievas/heroku-action@v1.0 # This is the action
-      with:
-        heroku_email: ${{secrets.HEROKU_EMAIL}}
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+      - name: deploying to Heroku
+        uses: CDNievas/heroku-action@v1.0 # This is the action
+        with:
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
